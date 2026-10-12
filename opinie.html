@@ -102,19 +102,19 @@
 .kkoc-portrait-bg{position:absolute;left:6%;right:2%;bottom:0;top:16%;border-radius:999px 999px 0 0;background:var(--kkoc-blue);border:3px solid var(--kkoc-navy);border-bottom:0;box-shadow:10px 0 0 var(--kkoc-navy);}
 .kkoc-portrait-ring{position:absolute;width:30%;aspect-ratio:1;top:6%;left:-6%;border-radius:50%;border:3px dashed var(--kkoc-navy);opacity:.6;}
 .kkoc-portrait-img{position:relative;display:block;width:100%;height:auto;animation:kkoc-rise .9s cubic-bezier(.2,.7,.2,1) both;}
-.kkoc-note{position:absolute;z-index:2;display:flex;flex-direction:column;gap:2px;background:#fff;border:2px solid var(--kkoc-navy);border-radius:12px;box-shadow:var(--kkoc-sh);padding:10px 14px;max-width:170px;animation:kkoc-float 6s ease-in-out 3;}
+.kkoc-note{position:absolute;z-index:2;display:flex;flex-direction:column;gap:2px;background:#fff;border:2px solid var(--kkoc-navy);border-radius:12px;box-shadow:var(--kkoc-sh);padding:10px 14px;max-width:170px;animation:kkoc-float 6s ease-in-out infinite;will-change:transform;}
 .kkoc-note-num{font-size:1.5rem;line-height:1.1;font-weight:800;letter-spacing:-0.03em;color:var(--kkoc-navy);}
 .kkoc-note-txt{font-size:14px;line-height:1.35;font-weight:600;color:var(--kkoc-ink);}
-.kkoc-note--a{top:22%;left:-4%;}
-.kkoc-note--b{top:52%;right:-4%;animation-delay:-2s;}
+.kkoc-note--a{top:22%;left:-4%;animation-delay:-1s;}
+.kkoc-note--b{top:52%;right:-4%;animation-delay:-3s;}
 .kkoc-note--c{bottom:8%;left:0;animation-delay:-4s;}
 @keyframes kkoc-rise{from{transform:translateY(48px);}to{transform:none;}}
 @keyframes kkoc-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 @keyframes kkoc-in{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:none;}}
-@keyframes kkoc-draw{from{stroke-dashoffset:var(--kkoc-len,600);}to{stroke-dashoffset:0;}}
-@keyframes kkoc-flow{to{stroke-dashoffset:-24;}}
-@keyframes kkoc-pulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(2.6);opacity:0;}}
-@keyframes kkoc-grow{from{transform:scaleY(.15);}to{transform:scaleY(1);}}
+@keyframes kkoc-draw{0%{stroke-dashoffset:var(--kkoc-len,600);}40%{stroke-dashoffset:0;}75%{stroke-dashoffset:0;}100%{stroke-dashoffset:calc(var(--kkoc-len,600) * -1);}}
+@keyframes kkoc-flow{0%{stroke-dashoffset:0;}100%{stroke-dashoffset:-64;}}
+@keyframes kkoc-pulse{0%{transform:scale(1);opacity:0;}15%{opacity:.75;}100%{transform:scale(2.6);opacity:0;}}
+@keyframes kkoc-grow{0%,100%{transform:scaleY(.2);}35%,80%{transform:scaleY(1);}}
 .kkoc-reveal{animation:kkoc-in .7s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 35%;}
 .kkoc-proof{--wp--spacing--top:clamp(40px,5vw,64px);--wp--spacing--bottom:clamp(40px,5vw,64px);}
 .kkoc-proof-logos{display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px;margin:0 0 40px;}
@@ -211,10 +211,10 @@
 .kkoc-proofcard .kkoc-quote-text{font-size:.95rem;margin-bottom:12px;}
 .kkoc-proofcard .kkoc-avatar{width:44px;height:44px;}
 .kkoc-proof-num{display:block;font-size:2.6rem;line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--kkoc-navy);margin:0 0 8px;}
-.kkoc-illu .kkoc-draw{stroke-dasharray:var(--kkoc-len,600);animation:kkoc-draw 2.2s ease-out .3s both;}
-.kkoc-illu .kkoc-flow{stroke-dasharray:8 8;animation:kkoc-flow 1.2s linear 3;}
-.kkoc-illu .kkoc-pulse{transform-box:fill-box;transform-origin:center;animation:kkoc-pulse 1.8s ease-out 3;}
-.kkoc-illu .kkoc-bar{transform-box:fill-box;transform-origin:bottom;animation:kkoc-grow 1s cubic-bezier(.2,.7,.2,1) both;}
+.kkoc-illu .kkoc-draw{stroke-dasharray:var(--kkoc-len,600);animation:kkoc-draw 8s ease-in-out infinite both;}
+.kkoc-illu .kkoc-flow{stroke-dasharray:8 8;animation:kkoc-flow 4s linear infinite;}
+.kkoc-illu .kkoc-pulse{transform-box:fill-box;transform-origin:center;opacity:0;animation:kkoc-pulse 3s ease-out infinite;}
+.kkoc-illu .kkoc-bar{transform-box:fill-box;transform-origin:bottom;animation:kkoc-grow 8s ease-in-out infinite both;}
 .kkoc-contact{display:grid;grid-template-columns:1fr;gap:36px;}
 .kkoc-contact-data{font-style:normal;margin:0 0 24px;line-height:1.7;color:var(--kkoc-navy);}
 .kkoc-contact-data .kkoc-link{display:inline-block;padding:4px 0;}
@@ -245,7 +245,7 @@
 .kkoc-review{break-inside:avoid;margin:0 0 32px;}
 .kkoc-review-tag{display:inline-block;margin:0 0 12px;font-size:13px;line-height:1.4;font-weight:700;color:var(--kkoc-navy);background:var(--kkoc-yellow);border:2px solid var(--kkoc-navy);border-radius:999px;padding:2px 12px;}
 .kkoc-bio{display:grid;grid-template-columns:1fr;gap:56px;align-items:start;}
-.kkoc-footer{background:var(--kkoc-navy);color:#d9dce3;--wp--spacing--top:64px;--wp--spacing--bottom:32px;}
+.kkoc-footer{background:var(--kkoc-navy);color:#d9dce3;--wp--spacing--top:64px;--wp--spacing--bottom:96px;}
 .kkoc-footer-grid{display:grid;grid-template-columns:1fr;gap:36px;}
 .kkoc-footer-logo{display:block;width:110px;height:auto;filter:invert(1);margin:0 0 16px;}
 .kkoc-footer-text{margin:0 0 12px;font-size:15px;line-height:1.6;max-width:40ch;}
@@ -258,9 +258,21 @@
 .kkoc-footer-address .kkoc-footer-link{min-height:28px;}
 .kkoc-footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid #2e3546;font-size:14px;line-height:1.5;}
 .kkoc-footer-copy{margin:0;}
-.kkoc-mbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:1fr 1.6fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:2px solid var(--kkoc-navy);}
-.kkoc-mbar .kkoc-btn{min-height:48px;padding:10px 12px;font-size:15px;box-shadow:3px 3px 0 var(--kkoc-navy);}
+.kkoc-mbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:10px 68px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:2px solid var(--kkoc-navy);}
+.kkoc-mbar .kkoc-btn{min-height:48px;padding:8px 8px;font-size:14px;box-shadow:3px 3px 0 var(--kkoc-navy);}
 .kkoc-page{padding-bottom:76px;}
+.kkoc-fab{display:flex;align-items:center;justify-content:center;width:52px;height:52px;box-sizing:border-box;border-radius:50%;border:2px solid var(--kkoc-navy);box-shadow:4px 4px 0 var(--kkoc-navy);cursor:pointer;transition:transform .2s ease,opacity .2s ease,box-shadow .2s ease;}
+.kkoc-fab:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--kkoc-navy);}
+.kkoc-totop{position:fixed;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:95;width:46px;height:46px;background:var(--kkoc-blue) url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMTlWNU02IDExbDYtNiA2IDYiLz48L3N2Zz4=) center/24px no-repeat;}
+.kkoc-js .kkoc-totop:not(.is-visible){opacity:0;visibility:hidden;transform:translateY(12px);}
+.kkoc-cookie{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:95;}
+.kkoc-cookie .kkoc-fab{width:46px;height:46px;}
+.kkoc-cookie-sum{list-style:none;background:var(--kkoc-yellow) url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTIxNzIyIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDEyLjVBOSA5IDAgMSAxIDExLjUgM2EzIDMgMCAwIDAgMy41IDMuNSAzIDMgMCAwIDAgMy41IDMuNSAzIDMgMCAwIDAgMi41IDIuNXoiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSIxMSIgcj0iMSIgZmlsbD0iIzEyMTcyMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTYiIHI9IjEiIGZpbGw9IiMxMjE3MjIiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iMTMiIHI9IjEiIGZpbGw9IiMxMjE3MjIiLz48Y2lyY2xlIGN4PSI4IiBjeT0iMTUuNSIgcj0iLjgiIGZpbGw9IiMxMjE3MjIiLz48L3N2Zz4=) center/26px no-repeat;}
+.kkoc-cookie-sum::-webkit-details-marker{display:none;}
+.kkoc-cookie-panel{position:absolute;left:0;bottom:66px;width:min(300px,calc(100vw - 32px));box-sizing:border-box;background:#fff;border:2px solid var(--kkoc-navy);border-radius:12px;box-shadow:var(--kkoc-sh);padding:16px 18px;}
+.kkoc-cookie-title{margin:0 0 6px;font-weight:800;font-size:15px;line-height:1.3;color:var(--kkoc-navy);}
+.kkoc-cookie-text{margin:0;font-size:14px;line-height:1.5;color:var(--kkoc-ink);}
+.kkoc-page:has(.kkoc-form :focus) .kkoc-totop,.kkoc-page:has(.kkoc-form :focus) .kkoc-cookie{display:none;}
 .kkoc-page :is(a,button,input,select,textarea,summary){scroll-margin-bottom:96px;}
 .kkoc-page:has(.kkoc-form :focus) .kkoc-mbar{display:none;}
 @media (min-width:640px){
@@ -289,6 +301,9 @@
  .kkoc-header-cta{display:inline-flex;min-height:46px;padding:10px 22px;font-size:15px;}
  .kkoc-drawer{display:none;}
  .kkoc-mbar{display:none;}
+ .kkoc-totop{bottom:20px;right:20px;width:52px;height:52px;}
+ .kkoc-cookie{bottom:20px;left:20px;}
+ .kkoc-cookie .kkoc-fab{width:52px;height:52px;}
  .kkoc-page{padding-bottom:0;}
  .kkoc-logo-img{width:108px;}
  .kkoc-hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;}
@@ -316,8 +331,138 @@
  .kkoc-why.kkoc-grid4{grid-template-columns:repeat(4,1fr);}
  .kkoc-services{grid-template-columns:repeat(3,1fr);}
 }
+.kkoc-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.kkoc-bg-navy .kkoc-lead{color:#e9ebf0;}
+.kkoc-mq-sec{--wp--spacing--top:16px;--wp--spacing--bottom:16px;background:var(--kkoc-yellow);border-top:2px solid var(--kkoc-navy);border-bottom:2px solid var(--kkoc-navy);overflow:hidden;}
+.kkoc-mq-sec .wp-content-wrap{width:100%;}
+.kkoc-mq{position:relative;display:flex;align-items:center;gap:16px;}
+.kkoc-mq-toggle{position:absolute;opacity:0;width:1px;height:1px;margin:0;}
+.kkoc-mq-pause{order:2;flex:none;font-size:13px;line-height:1.2;font-weight:700;color:var(--kkoc-navy);background:#fff;border:2px solid var(--kkoc-navy);border-radius:999px;padding:8px 12px;cursor:pointer;box-shadow:2px 2px 0 var(--kkoc-navy);}
+.kkoc-mq-toggle:focus-visible+.kkoc-mq-pause{outline:3px solid var(--kkoc-blue);outline-offset:2px;}
+.kkoc-mq-viewport{order:1;flex:1;min-width:0;overflow:hidden;display:flex;}
+.kkoc-mq-track{display:flex;flex:none;list-style:none;margin:0;padding:0;animation:kkoc-mq 45s linear infinite;will-change:transform;}
+.kkoc-mq-item{display:flex;align-items:center;gap:24px;padding-right:24px;font-weight:800;font-size:clamp(1.05rem,1.9vw,1.45rem);line-height:1.3;letter-spacing:-0.01em;color:var(--kkoc-navy);white-space:nowrap;}
+.kkoc-mq-item::after{content:"";width:12px;height:12px;background:var(--kkoc-navy);transform:rotate(45deg);}
+.kkoc-mq-viewport:hover .kkoc-mq-track,.kkoc-mq-toggle:checked~.kkoc-mq-viewport .kkoc-mq-track{animation-play-state:paused;}
+@keyframes kkoc-mq{from{transform:translateX(0);}to{transform:translateX(-100%);}}
+.kkoc-bento{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.kkoc-bento-tile{margin:0;background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh);padding:24px;box-sizing:border-box;}
+.kkoc-bento--photo{grid-column:1 / -1;padding:0;overflow:hidden;background:var(--kkoc-navy);}
+.kkoc-bento--photo .kkoc-about-img{border:0;border-radius:0;height:100%;width:100%;object-fit:cover;max-height:520px;}
+.kkoc-bento--wide{grid-column:1 / -1;}
+.kkoc-bento--num{display:flex;flex-direction:column;justify-content:flex-end;min-height:150px;}
+.kkoc-bento-num{display:block;font-size:clamp(2rem,3.4vw,3rem);line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--kkoc-navy);margin:0 0 8px;}
+.kkoc-bento-lab{display:block;font-size:15px;line-height:1.4;font-weight:600;color:var(--kkoc-navy);}
+.kkoc-bento--yellow{background:var(--kkoc-yellow);}
+.kkoc-bento--blue{background:var(--kkoc-blue);}
+.kkoc-bento--blue .kkoc-bento-num,.kkoc-bento--blue .kkoc-bento-lab{color:#fff;}
+.kkoc-bento--navy{background:var(--kkoc-navy);box-shadow:6px 6px 0 var(--kkoc-yellow);}
+.kkoc-bento--navy .kkoc-bento-num{color:var(--kkoc-yellow);}
+.kkoc-bento--navy .kkoc-bento-lab{color:#fff;}
+.kkoc-bento .kkoc-quote-text{font-size:1.05rem;}
+.kkoc-obento{display:grid;grid-template-columns:1fr;gap:20px;list-style:none;margin:0;padding:0;}
+.kkoc-obento-tile{display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-height:180px;}
+.kkoc-obento-tile .kkoc-h3{font-size:1.3rem;margin:0;}
+.kkoc-obento-tile:nth-child(1){background:var(--kkoc-yellow);}
+.kkoc-obento-tile:nth-child(1) .kkoc-h3{font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.2;}
+.kkoc-obento-tile:last-child{background:var(--kkoc-navy);box-shadow:6px 6px 0 var(--kkoc-yellow);}
+.kkoc-obento-tile:last-child .kkoc-h3{color:#fff;}
+.kkoc-obento-tile:last-child .kkoc-row-note,.kkoc-obento-tile:last-child .kkoc-row-note strong{color:#e9ebf0;}
+.kkoc-tabs{display:flex;flex-wrap:wrap;gap:12px;}
+.kkoc-tab-in{position:absolute;opacity:0;width:1px;height:1px;margin:0;}
+.kkoc-tab-lb{display:inline-flex;align-items:center;min-height:48px;box-sizing:border-box;padding:10px 20px;border:2px solid var(--kkoc-navy);border-radius:999px;background:#fff;color:var(--kkoc-navy);font-weight:700;font-size:15px;line-height:1.2;cursor:pointer;box-shadow:3px 3px 0 var(--kkoc-navy);transition:transform .15s ease,background .15s ease;}
+.kkoc-tab-lb:hover{transform:translate(-1px,-1px);}
+.kkoc-tab-in:checked+.kkoc-tab-lb{background:var(--kkoc-navy);color:#fff;box-shadow:3px 3px 0 var(--kkoc-yellow);}
+.kkoc-tab-in:focus-visible+.kkoc-tab-lb{outline:3px solid var(--kkoc-blue);outline-offset:3px;}
+.kkoc-tab-panels{flex:0 0 100%;margin-top:20px;}
+.kkoc-tab-panel{display:none;grid-template-columns:1fr;gap:32px;align-items:center;background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh-lg);padding:clamp(22px,3vw,40px);}
+.kkoc-tab-in:nth-of-type(1):checked~.kkoc-tab-panels>.kkoc-tab-panel:nth-child(1),.kkoc-tab-in:nth-of-type(2):checked~.kkoc-tab-panels>.kkoc-tab-panel:nth-child(2),.kkoc-tab-in:nth-of-type(3):checked~.kkoc-tab-panels>.kkoc-tab-panel:nth-child(3),.kkoc-tab-in:nth-of-type(4):checked~.kkoc-tab-panels>.kkoc-tab-panel:nth-child(4){display:grid;}
+.kkoc-tab-panel .kkoc-illu{box-shadow:none;}
+.kkoc-ticks{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px;}
+.kkoc-tick{position:relative;padding-left:34px;margin:0;color:var(--kkoc-navy);font-weight:500;line-height:1.5;}
+.kkoc-tick::before{content:"";position:absolute;left:0;top:1px;width:22px;height:22px;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxMjE3MjIiLz48cGF0aCBkPSJNNyAxMi41bDMuMiAzLjJMMTcgOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZjZTMyIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) center/contain no-repeat;}
+.kkoc-links{display:flex;flex-wrap:wrap;gap:4px 24px;}
+.kkoc-spot{margin:0 0 32px;}
+.kkoc-carousel{overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 20px;margin:0 -4px;scrollbar-color:var(--kkoc-navy) transparent;}
+.kkoc-carousel:focus-visible{outline:3px solid var(--kkoc-blue);outline-offset:4px;}
+.kkoc-carousel-track{display:flex;gap:24px;list-style:none;margin:0;padding:0 0 4px;}
+.kkoc-carousel-item{flex:0 0 min(360px,82%);scroll-snap-align:start;display:flex;}
+.kkoc-carousel-item .kkoc-quote{width:100%;}
+.kkoc-carousel-hint{margin:8px 0 0;font-size:14px;line-height:1.4;font-weight:600;color:var(--kkoc-navy);}
+.kkoc-tl{list-style:none;margin:0;padding:0;display:grid;gap:24px;}
+.kkoc-tl-item{position:relative;padding-left:76px;margin:0;}
+.kkoc-tl-item::before{content:"";position:absolute;left:25px;top:54px;bottom:-24px;width:3px;background:var(--kkoc-navy);}
+.kkoc-tl-item:last-child::before{content:none;}
+.kkoc-tl-dot{position:absolute;left:0;top:0;width:54px;height:54px;box-sizing:border-box;border-radius:50%;background:var(--kkoc-yellow);border:2px solid var(--kkoc-navy);box-shadow:3px 3px 0 var(--kkoc-navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;line-height:1;color:var(--kkoc-navy);}
+.kkoc-tl-card{padding:20px 22px;}
+.kkoc-tl-card .kkoc-p{margin:0 0 6px;}
+.kkoc-sticky{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;}
+.kkoc-sticky-main{display:grid;gap:20px;}
+.kkoc-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:20px;}
+.kkoc-tile{display:flex;flex-direction:column;gap:6px;padding:24px;}
+.kkoc-tile .kkoc-icon{margin-bottom:10px;}
+.kkoc-tile-text{margin:0;font-weight:600;color:var(--kkoc-navy);line-height:1.5;}
+.kkoc-ba{display:grid;grid-template-columns:1fr;gap:20px;align-items:stretch;}
+.kkoc-ba-col{margin:0;display:flex;flex-direction:column;gap:14px;}
+.kkoc-ba-tag{display:inline-block;align-self:flex-start;font-size:14px;line-height:1.3;font-weight:800;color:var(--kkoc-navy);border:2px solid var(--kkoc-navy);border-radius:999px;padding:6px 14px;background:#fff;box-shadow:2px 2px 0 var(--kkoc-navy);}
+.kkoc-ba--after .kkoc-ba-tag{background:var(--kkoc-yellow);}
+.kkoc-ba-text{margin:0;font-weight:600;color:var(--kkoc-navy);line-height:1.5;}
+.kkoc-ba-sep{display:flex;align-items:center;justify-content:center;}
+.kkoc-ba-sep::before{content:"";width:52px;height:52px;border-radius:50%;border:2px solid var(--kkoc-navy);background:var(--kkoc-yellow) url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTIxNzIyIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNOSA2bDYgNi02IDYiLz48L3N2Zz4=) center/26px no-repeat;box-shadow:3px 3px 0 var(--kkoc-navy);transform:rotate(90deg);}
+.kkoc-ctaband{--wp--spacing--top:clamp(56px,7vw,88px);--wp--spacing--bottom:clamp(56px,7vw,88px);}
+.kkoc-ctaband-in{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;}
+.kkoc-ctaband .kkoc-h2{color:#fff;margin-bottom:8px;}
+.kkoc-ctaband .kkoc-btn--ghost{background:transparent;color:#fff;border-color:#fff;box-shadow:4px 4px 0 var(--kkoc-yellow);}
+.kkoc-table-wrap{overflow-x:auto;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh-lg);background:#fff;}
+.kkoc-table-wrap:focus-visible{outline:3px solid var(--kkoc-blue);outline-offset:4px;}
+.kkoc-table{width:100%;min-width:820px;border-collapse:collapse;font-size:15px;line-height:1.5;color:var(--kkoc-ink);}
+.kkoc-table-th{background:var(--kkoc-yellow);color:var(--kkoc-navy);text-align:left;font-weight:800;padding:16px 18px;border-bottom:2px solid var(--kkoc-navy);}
+.kkoc-table-row:nth-child(even){background:var(--kkoc-soft);}
+.kkoc-table-rh{text-align:left;padding:16px 18px;vertical-align:top;font-weight:700;border-bottom:1px solid var(--kkoc-line);}
+.kkoc-table-td{padding:16px 18px;vertical-align:top;border-bottom:1px solid var(--kkoc-line);}
+.kkoc-shero--center .kkoc-shero-grid{grid-template-columns:1fr;justify-items:center;text-align:center;}
+.kkoc-shero--center .kkoc-h1,.kkoc-shero--center .kkoc-lead{margin-left:auto;margin-right:auto;}
+.kkoc-shero--center .kkoc-btns{justify-content:center;}
+.kkoc-shero--center .kkoc-visual{width:100%;max-width:720px;text-align:left;}
+.kkoc-shero--center .kkoc-crumbs-list{justify-content:center;}
+@media (min-width:640px){
+ .kkoc-tiles{grid-template-columns:1fr 1fr;}
+ .kkoc-obento{grid-template-columns:1fr 1fr;}
+ .kkoc-obento-tile:nth-child(1){grid-column:1 / -1;}
+}
+@media (min-width:960px){
+ .kkoc-bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(160px,auto);}
+ .kkoc-bento--photo{grid-column:1;grid-row:1 / span 3;}
+ .kkoc-bento--photo .kkoc-about-img{max-height:none;}
+ .kkoc-bento--intro{grid-column:2 / span 3;}
+ .kkoc-bento--quote{grid-column:3 / span 2;}
+ .kkoc-bento--wide{grid-column:1 / -1;}
+ .kkoc-obento{grid-template-columns:repeat(3,1fr);}
+ .kkoc-obento-tile:nth-child(1){grid-column:span 2;}
+ .kkoc-obento-tile:nth-child(4):last-child{grid-column:span 2;}
+ .kkoc-tab-panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;}
+ .kkoc-tl{grid-template-columns:repeat(var(--kkoc-steps,3),1fr);gap:28px;}
+ .kkoc-tl-item{padding-left:0;padding-top:76px;}
+ .kkoc-tl-item::before{left:54px;right:-28px;top:25px;bottom:auto;width:auto;height:3px;}
+ .kkoc-sticky{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;}
+ .kkoc-sticky-aside{position:sticky;top:112px;}
+ .kkoc-tiles{grid-template-columns:repeat(var(--kkoc-tiles,3),1fr);}
+ .kkoc-ba{grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);}
+ .kkoc-ba-sep::before{transform:none;}
+ .kkoc-ctaband-in{grid-template-columns:minmax(0,1.3fr) auto;gap:48px;}
+ .kkoc-shero--rev .kkoc-shero-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);}
+ .kkoc-shero--rev .kkoc-shero-grid>.kkoc-visual{order:-1;}
+}
 @media (prefers-reduced-motion:reduce){
- .kkoc-portrait-img,.kkoc-note,.kkoc-reveal,.kkoc-illu .kkoc-draw,.kkoc-illu .kkoc-flow,.kkoc-illu .kkoc-pulse,.kkoc-illu .kkoc-bar{animation:none;}
+ .kkoc-mq-track{animation:none;}
+ .kkoc-mq-viewport{flex-wrap:wrap;}
+ .kkoc-mq-track[aria-hidden="true"]{display:none;}
+ .kkoc-mq-track{flex-wrap:wrap;row-gap:8px;}
+ .kkoc-mq-pause{display:none;}
+ .kkoc-tab-lb{transition:none;}
+}
+@media (prefers-reduced-motion:reduce){
+ .kkoc-portrait-img,.kkoc-note,.kkoc-reveal,.kkoc-fab,.kkoc-illu .kkoc-draw,.kkoc-illu .kkoc-flow,.kkoc-illu .kkoc-pulse,.kkoc-illu .kkoc-bar{animation:none;}
  .kkoc-btn,.kkoc-card,.kkoc-arrowlink::after,.kkoc-dd-sum::after,.kkoc-service-link::after,.kkoc-faq-q::after,.kkoc-drawer-sub>summary::after{transition:none;}
  .kkoc-illu .kkoc-pulse{opacity:0;}
 }
@@ -399,7 +544,7 @@
 <body>
 <!-- MAKIETA-START -->
 <style>body{margin:0}</style>
-<p class="kkoc-mock">Makieta poglądowa: propozycja wyglądu strony przygotowana przez Webly Mate. Formularze nie działają.</p>
+<p class="kkoc-mock">Makieta poglądowa: propozycja wyglądu strony przygotowana przez Daniela Jeziorskiego. Formularze nie działają.</p>
 <!-- MAKIETA-END -->
 <div class="kkoc-page">
 <a class="kkoc-skip" href="#kkoc-main">Przejdź do treści</a>
@@ -441,20 +586,24 @@
 <section class="wp-section alignfull kkoc-proof kkoc-bg-navy kkoc-dark" data-type="section-component" aria-label="Dowody: klienci i liczby">
 <div class="wp-content-wrap" data-type="content-area-component">
 <div class="kkoc-proof-logos"><p class="kkoc-proof-label">Zaufali mi</p><ul class="kkoc-logos-list"><li class="kkoc-logo-tile"><img class="kkoc-logo-client" src="img/logo-egarden.webp" width="300" height="168" loading="lazy" alt="egarden"></li><li class="kkoc-logo-tile"><img class="kkoc-logo-client" src="img/logo-moda-size.webp" width="300" height="168" loading="lazy" alt="Moda Size Plus"></li><li class="kkoc-logo-tile"><img class="kkoc-logo-client" src="img/logo-akuna.webp" width="300" height="168" loading="lazy" alt="Akuna"></li><li class="kkoc-logo-tile"><img class="kkoc-logo-client" src="img/logo-babywood.webp" width="300" height="168" loading="lazy" alt="babywood"></li></ul></div>
-<ul class="kkoc-stats-list">
+<ul class="kkoc-stats-list" data-do-potwierdzenia="1">
 <li class="kkoc-stat"><span class="kkoc-stat-num">5 lat</span><span class="kkoc-stat-label">doświadczenia w systemach reklamowych</span></li>
 <li class="kkoc-stat"><span class="kkoc-stat-num">+20 mln zł</span><span class="kkoc-stat-label">wydanych w systemach reklamowych</span></li>
 <li class="kkoc-stat"><span class="kkoc-stat-num">24</span><span class="kkoc-stat-label">rynki, na których prowadziłem kampanie</span></li>
 <li class="kkoc-stat"><span class="kkoc-stat-num">85%</span><span class="kkoc-stat-label">klientów współpracuje ze mną od 2 lat</span></li>
 </ul>
-<p class="kkoc-stats-note">Liczby ze strony kamilkocik.pl. <span class="kkoc-todo">[DO POTWIERDZENIA] aktualność liczb; adforge.pl podaje „od 8 lat w branży marketingowej”, tu 5 lat w systemach reklamowych</span></p>
+
 </div>
 </section>
 <section class="wp-section alignfull kkoc-sec" data-type="section-component" aria-label="Opinie">
 <div class="wp-content-wrap" data-type="content-area-component">
-<ul class="kkoc-reviews"><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Z Kamilem współpracujemy już ponad 5 lat. Jesteśmy cały czas zachwyceni jego wiedzą, profesjonalizmem a co najważniejsze - dbaniem o interesy klienta. Kamil często wychodzi z inicjatywą i proponuje różne rozwiązania, które mogą zwiększyć ruch na sklepie, a co za tym idzie - sprzedaż. Już od początku naszej współpracy Kamil wykazywał się dobrym i konkretnym podejściem. Co miesiąc otrzymujemy szczegółowe zestawienie razem z wyjaśnieniem jak wyglądało to przez ostatnie 30 dni. Ponadto Kamil zawsze służy pomocną ręką i odpowiada na każde pytanie wyczerpująco, tak aby osoba nigdy nie mająca styczności z tym tematem bardzo dobrze zrozumiała. Bardzo się cieszymy, że nasz sklep internetowy jest pod opieką Kamila. Z całą pewnością mogę polecić współpracę z Kamilem firmom działającym już na rynku jak i początkującym, które dopiero stawiają pierwsze kroki w handlu online.”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-anna-iwanek.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Anna Iwanek</cite><span class="kkoc-quote-firm">Moda Size Plus Iwanek</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie Facebook i Google</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Gorąco rekomenduję współpracę z Kamilem. W spółce, którą zarządem - LifelineDiag - Kamil tworzył i nadzorował kampanie na Facebooku i Google. Podczas naszej współpracy dał się poznać jako osoba profesjonalna, rzetelna i kompetentna. Stosuje nie tylko standardowe rozwiązania, ale często wychodzi z inicjatywą, aby jak najlepiej dopasować stosowane rozwiązanie do potrzeb klienta. Tak było w naszym przypadku, co finalnie przekładało się na wzrost sprzedaży.”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-marcin-maciag.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Marcin Maciąg</cite><span class="kkoc-quote-firm">CEO, LifelineDiag / PetsDiag, www.lifelinediag.eu</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Z Kamilem współpracujemy od ponad roku. Podczas cotygodniowych spotkań omawiamy bieżące działania, na bieżąco je korygujemy i ustalamy co dalej. Kamil biegle korzysta z Googlowych narzędzi, często „podrzuca” też zajawki o branżowych nowinkach. Od początku angażuje się też w poznanie naszej marki i komunikacji. Bierze pod uwagę różne aspekty mogące wpływać na wyniki np. specyfikę branży czy sezonowość. Polubiliśmy się także prywatnie, a Kamil w pewien sposób stał się częścią naszego Zespołu 🙂”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-joanna-marzecka.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Joanna Marzęcka</cite><span class="kkoc-quote-firm">babywood.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Współpracę z Kamilem podjęliśmy pod wpływem świetnych rekomendacji ze strony jego klientów, a teraz sami polecamy go zaprzyjaźnionym firmom. Jest turbo-profesjonalny i proaktywny i chętnie rozszerzamy z nim współpracę na kolejne narzędzia i rynki, gdy sezon w branży sprzyja. Dla Jestem w bajce nie bez znaczenie jest również fakt, że Kamil jest ciekawą osobą i świetnym słuchaczem, przez co każdy wspólny status jest źródłem inspiracji.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">KK</span><span><cite class="kkoc-quote-name">Konrad Kacperczyk</cite><span class="kkoc-quote-firm">www.jestemwbajce.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Współpraca na super poziomie! Konkretnie, rzeczowo, a co najważniejsze - efektywnie! Pan Kamil zawsze znalazł czas dla naszej firmy, a w nagłych przypadkach działała ekspresowo. Świetna optymalizacja kosztów do zysków. 🙂”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">M</span><span><cite class="kkoc-quote-name">Matylda</cite><span class="kkoc-quote-firm">akuna.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Nawet najlepszy produkt bez reklamy nie zostanie sprzedany. Usługi świadczone przez Pana Kamila Kocika w zakresie reklamy są na najwyższym poziomie. Jego znajomość nowoczesnych narzędzi, jakie obecnie są dostarczane przez cyfrowy rynek były bardzo pomocne przy realizacji wyznaczonych zadań. Świetna współpraca w zakresie planowania i realizacji pozwoliły uzyskać zamierzone efekty. Wzorowa bieżąca komunikacja z Panem Kamilem - bardzo ważna - w reakcji na dane z rynku, pozwalała na sprawne wdrażanie zmian, aby ostatecznie zrealizować wyznaczone cele. Polecam współpracę z Panem Kamilem Kocikiem.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">MF</span><span><cite class="kkoc-quote-name">Marcin Fertacz</cite><span class="kkoc-quote-firm">Specjalista ds. marketingu</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Wdrożenie GA4</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Jesteśmy zadowoleniu ze współpracy, usługa wdrożenia Google Analytics 4 została wykonana prawidłowo, uczciwe i rzetelne podejście. Bardzo dobry i szybki kontakt, bardzo duże zaangażowanie w wykonywaną pracę, polecamy.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">M</span><span><cite class="kkoc-quote-name">Marcin</cite><span class="kkoc-quote-firm">Sklep tyletegotu.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Wdrożenie GA4</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Kamil pomógł mi zaimplementować Google Analytics 4 w nietypowej konfiguracji, oraz ustawić pomiar celów na stronie. Dostarczył również rekomendacji do dalszej pracy.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">PT</span><span><cite class="kkoc-quote-name">Paweł Tarkowski</cite><span class="kkoc-quote-firm">www.blogelist.com</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Szkolenie z Facebook Ads</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Kamil przeprowadził dla mnie szkolenie z Facebook Ads. Było to zdecydowanie najlepsze moje dotychczas szkolenie, w jakim miałam okazję brać udział. Wiedza przekazana w prosty i zrozumiały sposób, a agenda świetnie dopasowana do moich oczekiwań i potrzeb. Jestem bardzo zadowolona! Polecam każdemu:)”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-maja-lakomy.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Maja Łakomy</cite><span class="kkoc-quote-firm">CEO Maja Łakomy - Social Media/Consulting</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kanał YouTube</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Kamil współpracuje ze mną od ponad roku w rozwoju kanału na YouTubie marki DEWELOPUJ, która wspiera deweloperów budowalnych w rozwoju biznesu. Kanał w tym czasie podwoił liczbę obserwujących i przekroczył 1 mln wyświetleń. Kamil jako partner biznesowy działa rzetelnie i skrupulatnie wsłuchując się w moje potrzeby. Polecam współpracę z nim 🙂”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-pawel-gorski.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Paweł Górski</cite><span class="kkoc-quote-firm">dewelopuj.pl</span></span></footer></blockquote></li></ul>
-<p class="kkoc-p kkoc-muted">Usługa i okres współpracy przy każdej opinii: <span class="kkoc-todo">[DO POTWIERDZENIA] uzupełnić usługę i okres współpracy przy opiniach bez tych danych</span></p>
-<div class="kkoc-cta"><a class="kkoc-btn" href="#kkoc-formularz">Umów rozmowę o swoim sklepie</a><p class="kkoc-cta-alt">albo zadzwoń: <a class="kkoc-link" href="tel:+48609388776">609 388 776</a></p></div>
+<ul class="kkoc-reviews" data-do-potwierdzenia="11 23 24 25"><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Z Kamilem współpracujemy już ponad 5 lat. Jesteśmy cały czas zachwyceni jego wiedzą, profesjonalizmem a co najważniejsze - dbaniem o interesy klienta. Kamil często wychodzi z inicjatywą i proponuje różne rozwiązania, które mogą zwiększyć ruch na sklepie, a co za tym idzie - sprzedaż. Już od początku naszej współpracy Kamil wykazywał się dobrym i konkretnym podejściem. Co miesiąc otrzymujemy szczegółowe zestawienie razem z wyjaśnieniem jak wyglądało to przez ostatnie 30 dni. Ponadto Kamil zawsze służy pomocną ręką i odpowiada na każde pytanie wyczerpująco, tak aby osoba nigdy nie mająca styczności z tym tematem bardzo dobrze zrozumiała. Bardzo się cieszymy, że nasz sklep internetowy jest pod opieką Kamila. Z całą pewnością mogę polecić współpracę z Kamilem firmom działającym już na rynku jak i początkującym, które dopiero stawiają pierwsze kroki w handlu online.”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-anna-iwanek.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Anna Iwanek</cite><span class="kkoc-quote-firm">Moda Size Plus Iwanek</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie Facebook i Google</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Gorąco rekomenduję współpracę z Kamilem. W spółce, którą zarządem - LifelineDiag - Kamil tworzył i nadzorował kampanie na Facebooku i Google. Podczas naszej współpracy dał się poznać jako osoba profesjonalna, rzetelna i kompetentna. Stosuje nie tylko standardowe rozwiązania, ale często wychodzi z inicjatywą, aby jak najlepiej dopasować stosowane rozwiązanie do potrzeb klienta. Tak było w naszym przypadku, co finalnie przekładało się na wzrost sprzedaży.”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-marcin-maciag.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Marcin Maciąg</cite><span class="kkoc-quote-firm">CEO, LifelineDiag / PetsDiag, www.lifelinediag.eu</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Z Kamilem współpracujemy od ponad roku. Podczas cotygodniowych spotkań omawiamy bieżące działania, na bieżąco je korygujemy i ustalamy co dalej. Kamil biegle korzysta z Googlowych narzędzi, często „podrzuca” też zajawki o branżowych nowinkach. Od początku angażuje się też w poznanie naszej marki i komunikacji. Bierze pod uwagę różne aspekty mogące wpływać na wyniki np. specyfikę branży czy sezonowość. Polubiliśmy się także prywatnie, a Kamil w pewien sposób stał się częścią naszego Zespołu 🙂”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-joanna-marzecka.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Joanna Marzęcka</cite><span class="kkoc-quote-firm">babywood.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Współpracę z Kamilem podjęliśmy pod wpływem świetnych rekomendacji ze strony jego klientów, a teraz sami polecamy go zaprzyjaźnionym firmom. Jest turbo-profesjonalny i proaktywny i chętnie rozszerzamy z nim współpracę na kolejne narzędzia i rynki, gdy sezon w branży sprzyja. Dla Jestem w bajce nie bez znaczenie jest również fakt, że Kamil jest ciekawą osobą i świetnym słuchaczem, przez co każdy wspólny status jest źródłem inspiracji.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">KK</span><span><cite class="kkoc-quote-name">Konrad Kacperczyk</cite><span class="kkoc-quote-firm">www.jestemwbajce.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Współpraca na super poziomie! Konkretnie, rzeczowo, a co najważniejsze - efektywnie! Pan Kamil zawsze znalazł czas dla naszej firmy, a w nagłych przypadkach działała ekspresowo. Świetna optymalizacja kosztów do zysków. 🙂”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">M</span><span><cite class="kkoc-quote-name">Matylda</cite><span class="kkoc-quote-firm">akuna.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kampanie reklamowe</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Nawet najlepszy produkt bez reklamy nie zostanie sprzedany. Usługi świadczone przez Pana Kamila Kocika w zakresie reklamy są na najwyższym poziomie. Jego znajomość nowoczesnych narzędzi, jakie obecnie są dostarczane przez cyfrowy rynek były bardzo pomocne przy realizacji wyznaczonych zadań. Świetna współpraca w zakresie planowania i realizacji pozwoliły uzyskać zamierzone efekty. Wzorowa bieżąca komunikacja z Panem Kamilem - bardzo ważna - w reakcji na dane z rynku, pozwalała na sprawne wdrażanie zmian, aby ostatecznie zrealizować wyznaczone cele. Polecam współpracę z Panem Kamilem Kocikiem.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">MF</span><span><cite class="kkoc-quote-name">Marcin Fertacz</cite><span class="kkoc-quote-firm">Specjalista ds. marketingu</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Wdrożenie GA4</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Jesteśmy zadowoleniu ze współpracy, usługa wdrożenia Google Analytics 4 została wykonana prawidłowo, uczciwe i rzetelne podejście. Bardzo dobry i szybki kontakt, bardzo duże zaangażowanie w wykonywaną pracę, polecamy.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">M</span><span><cite class="kkoc-quote-name">Marcin</cite><span class="kkoc-quote-firm">Sklep tyletegotu.pl</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Wdrożenie GA4</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Kamil pomógł mi zaimplementować Google Analytics 4 w nietypowej konfiguracji, oraz ustawić pomiar celów na stronie. Dostarczył również rekomendacji do dalszej pracy.”</p><footer class="kkoc-quote-who"><span class="kkoc-avatar kkoc-avatar--txt" aria-hidden="true">PT</span><span><cite class="kkoc-quote-name">Paweł Tarkowski</cite><span class="kkoc-quote-firm">www.blogelist.com</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Szkolenie z Facebook Ads</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Kamil przeprowadził dla mnie szkolenie z Facebook Ads. Było to zdecydowanie najlepsze moje dotychczas szkolenie, w jakim miałam okazję brać udział. Wiedza przekazana w prosty i zrozumiały sposób, a agenda świetnie dopasowana do moich oczekiwań i potrzeb. Jestem bardzo zadowolona! Polecam każdemu:)”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-maja-lakomy.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Maja Łakomy</cite><span class="kkoc-quote-firm">CEO Maja Łakomy - Social Media/Consulting</span></span></footer></blockquote></li><li class="kkoc-review kkoc-reveal"><p class="kkoc-review-tag">Kanał YouTube</p><blockquote class="kkoc-quote kkoc-quote--card"><p class="kkoc-quote-text">„Kamil współpracuje ze mną od ponad roku w rozwoju kanału na YouTubie marki DEWELOPUJ, która wspiera deweloperów budowalnych w rozwoju biznesu. Kanał w tym czasie podwoił liczbę obserwujących i przekroczył 1 mln wyświetleń. Kamil jako partner biznesowy działa rzetelnie i skrupulatnie wsłuchując się w moje potrzeby. Polecam współpracę z nim 🙂”</p><footer class="kkoc-quote-who"><img class="kkoc-avatar" src="img/opinia-pawel-gorski.webp" width="56" height="56" loading="lazy" alt=""><span><cite class="kkoc-quote-name">Paweł Górski</cite><span class="kkoc-quote-firm">dewelopuj.pl</span></span></footer></blockquote></li></ul>
+</div>
+</section>
+<section class="wp-section alignfull kkoc-ctaband kkoc-bg-navy kkoc-dark" data-type="section-component" aria-label="Umów rozmowę">
+<div class="wp-content-wrap" data-type="content-area-component">
+<div class="kkoc-ctaband-in"><div><p class="kkoc-h2">Zadbajmy o Twoje kampanie reklamowe</p><p class="kkoc-lead" style="margin:0">Sprawdź, czy mogę Ci pomóc.</p></div>
+<div class="kkoc-btns"><a class="kkoc-btn" href="#kkoc-formularz">Umów rozmowę</a><a class="kkoc-btn kkoc-btn--ghost" href="tel:+48609388776">Zadzwoń: 609 388 776</a></div></div>
 </div>
 </section>
 <section class="wp-section alignfull kkoc-sec kkoc-bg-yellow" data-type="section-component" id="kkoc-formularz" aria-labelledby="kkoc-form-title">
@@ -464,7 +613,7 @@
 <h2 class="kkoc-h2" id="kkoc-form-title">Chcesz porozmawiać o swoim sklepie?</h2>
 <p class="kkoc-lead">Napisz, czego potrzebujesz. Odezwę się, żeby umówić rozmowę.</p>
 <h3 class="kkoc-h3">Co się stanie po wysłaniu</h3>
-<ol class="kkoc-next"><li class="kkoc-next-item">Wysyłasz zapytanie z adresem sklepu i tym, czego potrzebujesz.</li><li class="kkoc-next-item">Odpowiadam i umawiamy rozmowę wstępną. <span class="kkoc-todo">[DO POTWIERDZENIA] czas odpowiedzi na zapytanie (np. w ciągu ilu dni roboczych)</span></li><li class="kkoc-next-item">Na rozmowie omawiamy Twoje cele, budżet i dalsze kroki.</li></ol>
+<ol class="kkoc-next" data-do-potwierdzenia="5"><li class="kkoc-next-item">Wysyłasz zapytanie z adresem sklepu i tym, czego potrzebujesz.</li><li class="kkoc-next-item">Odpowiadam i umawiamy rozmowę wstępną.</li><li class="kkoc-next-item">Na rozmowie omawiamy Twoje cele, budżet i dalsze kroki.</li></ol>
 <address class="kkoc-contact-data">Wolisz napisać lub zadzwonić?<br><a class="kkoc-link" href="mailto:kontakt@kamilkocik.pl">kontakt@kamilkocik.pl</a><br><a class="kkoc-link" href="tel:+48609388776">609 388 776</a></address>
 </div>
 <div class="kkoc-formbox">
@@ -475,7 +624,7 @@
 <p class="kkoc-form-micro">Wolisz rozmowę? Zadzwoń: <a class="kkoc-link" href="tel:+48609388776">609 388 776</a></p>
 <p class="kkoc-form-micro">Chcesz podać budżet i więcej szczegółów? <a class="kkoc-link" href="kontakt.html#kkoc-formularz">Pełny formularz na stronie kontaktu</a>.</p>
 <p class="kkoc-form-msg ff-message-success" role="status" aria-live="polite"></p>
-<p class="kkoc-rodo">Administratorem danych podanych w formularzu jest Kamil Kocik, Lusławice 256, 32-840 Zakliczyn, NIP 8733227169. Dane przetwarzam, aby odpowiedzieć na Twoje zapytanie i podjąć działania przed zawarciem umowy (art. 6 ust. 1 lit. b RODO) oraz w prawnie uzasadnionym interesie, jakim jest prowadzenie korespondencji (art. 6 ust. 1 lit. f RODO). Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu i skargi do Prezesa UODO. Szczegóły w <a class="kkoc-link" href="https://kamilkocik.pl/polityka-prywatnosci/">polityce prywatności</a>. <span class="kkoc-todo">[DO POTWIERDZENIA] treść klauzuli do akceptacji klienta lub prawnika; polityka prywatności do uzupełnienia przed uruchomieniem formularza</span></p>
+<p class="kkoc-rodo" data-do-potwierdzenia="21">Administratorem danych podanych w formularzu jest Kamil Kocik, Lusławice 256, 32-840 Zakliczyn, NIP 8733227169. Dane przetwarzam, aby odpowiedzieć na Twoje zapytanie i podjąć działania przed zawarciem umowy (art. 6 ust. 1 lit. b RODO) oraz w prawnie uzasadnionym interesie, jakim jest prowadzenie korespondencji (art. 6 ust. 1 lit. f RODO). Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu i skargi do Prezesa UODO. Szczegóły w <a class="kkoc-link" href="https://kamilkocik.pl/polityka-prywatnosci/">polityce prywatności</a>.</p>
 </form>
 </div>
 </div>
@@ -506,16 +655,18 @@
 </div>
 <div>
 <p class="kkoc-footer-h">Dane firmy</p>
-<address class="kkoc-footer-address">Kamil Kocik<br>NIP: 8733227169<br>Lusławice 256, 32-840 Zakliczyn<br>woj. małopolskie<br><a class="kkoc-footer-link" href="mailto:kontakt@kamilkocik.pl">kontakt@kamilkocik.pl</a><br><a class="kkoc-footer-link" href="tel:+48609388776">609 388 776</a></address>
-<p class="kkoc-footer-text" style="margin-top:12px">LinkedIn i Facebook <span class="kkoc-todo">[DO POTWIERDZENIA] adresy profili LinkedIn i Facebook</span></p>
+<address class="kkoc-footer-address" data-do-potwierdzenia="7">Kamil Kocik<br>NIP: 8733227169<br>Lusławice 256, 32-840 Zakliczyn<br>woj. małopolskie<br><a class="kkoc-footer-link" href="mailto:kontakt@kamilkocik.pl">kontakt@kamilkocik.pl</a><br><a class="kkoc-footer-link" href="tel:+48609388776">609 388 776</a></address>
+
 </div>
 </div>
 <div class="kkoc-footer-bottom">
-<p class="kkoc-footer-copy">© 2026 Kamil Kocik</p>
+<p class="kkoc-footer-copy">© 2026 Kamil Kocik. Wdrożenie: <a class="kkoc-footer-link kkoc-footer-link--inline" href="https://danieljeziorski.pl" target="_blank" rel="noopener">Daniel Jeziorski</a></p>
 <a class="kkoc-footer-link" href="#kkoc-top">Na górę</a>
 </div>
 </div>
 </footer>
+<details class="kkoc-cookie"><summary class="kkoc-fab kkoc-cookie-sum" aria-label="Ustawienia plików cookies"></summary><div class="kkoc-cookie-panel" role="note"><p class="kkoc-cookie-title">Ustawienia plików cookies</p><p class="kkoc-cookie-text">To podgląd w makiecie. Na stronie docelowej ten przycisk ponownie otworzy baner zgód z wtyczki zgód.</p></div></details>
+<a class="kkoc-fab kkoc-totop" href="#kkoc-top" aria-label="Wróć na górę strony"></a>
 <nav class="kkoc-mbar" aria-label="Szybki kontakt"><a class="kkoc-btn kkoc-btn--ghost" href="tel:+48609388776">Zadzwoń</a><a class="kkoc-btn" href="#kkoc-formularz">Umów rozmowę</a></nav>
 </div>
 <script data-wp-block-html="js">
@@ -523,7 +674,7 @@
   var page=document.querySelector('.kkoc-page');
   if(!page){return;}
   /* 1. menu: Esc zamyka, klik poza zamyka rozwijane usługi, klik w link zamyka szufladę */
-  var dds=page.querySelectorAll('.kkoc-dd, .kkoc-drawer');
+  var dds=page.querySelectorAll('.kkoc-dd, .kkoc-drawer, .kkoc-cookie');
   document.addEventListener('keydown',function(e){
     if(e.key!=='Escape'){return;}
     dds.forEach(function(d){
@@ -546,7 +697,24 @@
       subs.forEach(function(o){if(o!==s){o.open=false;}});
     });
   });
-  /* 3. formularz makiety: bez wysyłki */
+  /* 3. przycisk na górę: pokazywany po przewinięciu, płynne przewijanie */
+  page.classList.add('kkoc-js');
+  var up=page.querySelector('.kkoc-totop');
+  if(up){
+    var onScroll=function(){
+      if(window.scrollY > 600){up.classList.add('is-visible');}else{up.classList.remove('is-visible');}
+    };
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+    up.addEventListener('click',function(e){
+      e.preventDefault();
+      var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({top:0,behavior:calm?'auto':'smooth'});
+      var logo=page.querySelector('.kkoc-logo');
+      if(logo){logo.focus({preventScroll:true});}
+    });
+  }
+  /* 4. formularz makiety: bez wysyłki */
   page.querySelectorAll('form.kkoc-form').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
