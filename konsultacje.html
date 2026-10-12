@@ -164,7 +164,7 @@
 .kkoc-shero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
 .kkoc-visual{position:relative;padding:0;}
 .kkoc-illu{display:block;width:100%;height:auto;background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh-lg);}
-.kkoc-visual .kkoc-proofcard{position:relative;margin:-24px 12px 0 12px;}
+.kkoc-visual .kkoc-proofcard{position:relative;margin:16px 0 0;}
 .kkoc-proofcard{margin:0;background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);padding:18px 20px;box-shadow:var(--kkoc-sh);}
 .kkoc-proofcard .kkoc-quote-text{font-size:.95rem;margin-bottom:12px;}
 .kkoc-proofcard .kkoc-avatar{width:44px;height:44px;}
@@ -230,7 +230,7 @@
 .kkoc-cookie-title{margin:0 0 6px;font-weight:800;font-size:15px;line-height:1.3;color:var(--kkoc-navy);}
 .kkoc-cookie-text{margin:0;font-size:14px;line-height:1.5;color:var(--kkoc-ink);}
 .kkoc-page:has(.kkoc-form :focus) .kkoc-totop,.kkoc-page:has(.kkoc-form :focus) .kkoc-cookie{display:none;}
-.kkoc-page :is(a,button,input,select,textarea,summary){scroll-margin-bottom:96px;}
+.kkoc-page :is(a,button,input,select,textarea,summary){scroll-margin-bottom:96px;scroll-margin-top:96px;}
 .kkoc-page:has(.kkoc-form :focus) .kkoc-mbar{display:none;}
 @media (min-width:640px){
  .kkoc-form-grid{grid-template-columns:1fr 1fr;}
@@ -348,14 +348,14 @@
 .kkoc-rr-group{display:flex;gap:20px;padding-right:20px;}
 .kkoc-rc{display:flex;flex-direction:column;width:330px;box-sizing:border-box;margin:0;padding:22px 22px 18px;background:#fff;border:1.5px solid #d5d8de;border-radius:18px;}
 .kkoc-rc--feat{background:var(--kkoc-blue);border-color:var(--kkoc-navy);box-shadow:5px 5px 0 var(--kkoc-navy);}
-.kkoc-rc-tag{margin:0 0 12px;font-size:13px;line-height:1.3;font-weight:700;color:var(--kkoc-muted);}
+.kkoc-rc-tag{margin:0 0 12px;font-size:14px;line-height:1.3;font-weight:700;color:var(--kkoc-muted);}
 .kkoc-rc-q{margin:0 0 10px;font-size:15.5px;line-height:1.55;color:var(--kkoc-navy);flex:1;}
-.kkoc-rc-note{margin:0 0 16px;font-size:13px;line-height:1.3;color:var(--kkoc-muted);}
+.kkoc-rc-note{margin:0 0 16px;font-size:14px;line-height:1.3;color:var(--kkoc-muted);}
 .kkoc-rc-who{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
 .kkoc-rc-av{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none;}
 .kkoc-rc-av--txt{display:inline-flex;align-items:center;justify-content:center;background:var(--kkoc-yellow);color:var(--kkoc-navy);font-weight:800;font-size:13px;line-height:1;}
 .kkoc-rc-name{display:block;font-weight:800;font-size:15px;line-height:1.3;color:var(--kkoc-navy);}
-.kkoc-rc-firm{display:block;font-size:13px;line-height:1.4;color:var(--kkoc-muted);}
+.kkoc-rc-firm{display:block;font-size:14px;line-height:1.4;color:var(--kkoc-muted);}
 .kkoc-rc-more{align-self:flex-start;font-size:14px;font-weight:700;color:var(--kkoc-blue);text-decoration:underline;text-underline-offset:3px;min-height:24px;}
 .kkoc-rc--feat .kkoc-rc-tag,.kkoc-rc--feat .kkoc-rc-q,.kkoc-rc--feat .kkoc-rc-note,.kkoc-rc--feat .kkoc-rc-name,.kkoc-rc--feat .kkoc-rc-firm,.kkoc-rc--feat .kkoc-rc-more{color:#fff;}
 .kkoc-split2{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
@@ -364,7 +364,8 @@
 .kkoc-faq-item[open]::details-content{block-size:auto;}
 @media (min-width:760px){
  .kkoc-lg--2{grid-template-columns:1fr 1fr;}
- .kkoc-lg--3{grid-template-columns:repeat(3,1fr);}
+ .kkoc-lg--3{grid-template-columns:1fr 1fr;}
+ .kkoc-lg--3 .kkoc-lg-cell:last-child:nth-child(odd){grid-column:1 / -1;}
  .kkoc-lg--2 .kkoc-lg-cell--wide{grid-column:1 / -1;}
  .kkoc-lg-cell{padding:40px 40px 34px;}
  .kkoc-pcs{grid-template-columns:repeat(var(--kkoc-steps,3),1fr);}
@@ -372,10 +373,15 @@
 }
 @media (min-width:960px){
  .kkoc-split2{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:80px;}
+ .kkoc-lg--3{grid-template-columns:repeat(3,1fr);}
+ .kkoc-lg--3 .kkoc-lg-cell:last-child:nth-child(odd){grid-column:auto;}
 }
 @media (prefers-reduced-motion:reduce){
  .kkoc-rr-track,.kkoc-mini .kkoc-draw,.kkoc-mini .kkoc-flow,.kkoc-mini .kkoc-pulse,.kkoc-mini .kkoc-bar,.kkoc-mini .kkoc-caret{animation:none;}
- .kkoc-rrs{overflow-x:auto;-webkit-mask-image:none;mask-image:none;}
+ .kkoc-rrs{-webkit-mask-image:none;mask-image:none;}
+ .kkoc-rr{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
+ .kkoc-rr-track{width:auto;}
+ .kkoc-rc{scroll-snap-align:start;flex:none;}
  .kkoc-rr-group[aria-hidden="true"]{display:none;}
  .kkoc-faq-item::details-content{transition:none;}
  .kkoc-lg-cell,.kkoc-lg-link{transition:none;}
@@ -425,7 +431,7 @@
    "url": "https://kamilkocik.pl/",
    "email": "kontakt@kamilkocik.pl",
    "telephone": "+48609388776",
-   "vatID": "PL8733227169",
+   "taxID": "8733227169",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "Lusławice 256",
@@ -569,7 +575,7 @@
 <div class="wp-content-wrap" data-type="content-area-component">
 <div class="kkoc-contact">
 <div>
-<h2 class="kkoc-h2" id="kkoc-form-title">Czy jesteś gotowy odkryć pełny potencjał swojego sklepu?</h2>
+<h2 class="kkoc-h2" id="kkoc-form-title">Chcesz omówić swoje kampanie?</h2>
 <p class="kkoc-lead">Napisz, z czym masz problem. Odezwę się, żeby ustalić termin konsultacji.</p>
 <h3 class="kkoc-h3">Co się stanie po wysłaniu</h3>
 <ol class="kkoc-next" data-do-potwierdzenia="5"><li class="kkoc-next-item">Wysyłasz zapytanie i opisujesz, z czym masz problem.</li><li class="kkoc-next-item">Odpowiadam i ustalamy termin konsultacji.</li><li class="kkoc-next-item">Po ustaleniu szczegółów i terminu następuje opłata, a potem spotykamy się online.</li></ol>
@@ -596,7 +602,7 @@
 <div>
 <img class="kkoc-footer-logo" src="img/logo-kamil-kocik-crop.svg" width="860" height="400" alt="Kamil Kocik" loading="lazy">
 <p class="kkoc-footer-text">Kampanie Google Ads i Facebook Ads oraz analityka dla sklepów internetowych.</p>
-<p class="kkoc-footer-text">Potrzebujesz zespołu? Razem z Oskarem Mazurem tworzę <a class="kkoc-footer-link" style="display:inline;text-decoration:underline" href="https://adforge.pl" target="_blank" rel="noopener">AdForge</a>.</p>
+<p class="kkoc-footer-text">Potrzebujesz zespołu? Razem z Oskarem Mazurem tworzę <a class="kkoc-footer-link kkoc-footer-link--inline" href="https://adforge.pl" target="_blank" rel="noopener">AdForge</a>.</p>
 </div>
 <div>
 <p class="kkoc-footer-h">Usługi</p>
