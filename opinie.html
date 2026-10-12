@@ -49,8 +49,8 @@
 .kkoc-btns{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:0 0 8px;}
 .kkoc-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin:48px 0 0;}
 .kkoc-cta-alt{margin:0;font-size:15px;line-height:1.5;font-weight:600;color:var(--kkoc-navy);}
-.kkoc-card{background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh);padding:28px;transition:transform .2s ease,box-shadow .2s ease;}
-.kkoc-card--hover:hover{transform:translate(-3px,-3px);box-shadow:var(--kkoc-sh-hover);}
+.kkoc-card{background:#fff;border:1.5px solid #d5d8de;border-radius:var(--kkoc-radius);padding:28px;transition:transform .2s ease,border-color .2s ease;}
+.kkoc-card--hover:hover{transform:translateY(-3px);border-color:var(--kkoc-navy);}
 .kkoc-icon{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:14px;background:var(--kkoc-yellow);border:2px solid var(--kkoc-navy);box-shadow:3px 3px 0 var(--kkoc-navy);margin:0 0 18px;flex:none;}
 .kkoc-icon-svg{display:block;width:30px;height:30px;}
 .kkoc-header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid var(--kkoc-navy);}
@@ -159,7 +159,7 @@
 .kkoc-quote--big{background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh-lg);padding:clamp(24px,3.5vw,44px);}
 .kkoc-quote--big .kkoc-quote-text{font-size:clamp(1.12rem,1.9vw,1.42rem);line-height:1.55;font-weight:600;letter-spacing:-0.01em;}
 .kkoc-quote--big::before{content:"";display:block;width:48px;height:40px;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0MCI+PHBhdGggZD0iTTAgNDBWMjJDMCA5IDcgMiAxOSAwbDIgNWMtNyAyLTEwIDctMTAgMTNoOXYyMkgwem0yNyAwVjIyQzI3IDkgMzQgMiA0NiAwbDIgNWMtNyAyLTEwIDctMTAgMTNoOXYyMkgyN3oiIGZpbGw9IiMxMjE3MjIiLz48L3N2Zz4=) center/contain no-repeat;margin-bottom:22px;}
-.kkoc-quote--card{background:#fff;border:2px solid var(--kkoc-navy);border-radius:var(--kkoc-radius);box-shadow:var(--kkoc-sh);padding:24px;}
+.kkoc-quote--card{background:#fff;border:1.5px solid #d5d8de;border-radius:var(--kkoc-radius);padding:24px;}
 .kkoc-quote-who{display:flex;align-items:center;gap:14px;font-style:normal;}
 .kkoc-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;background:var(--kkoc-soft);border:2px solid var(--kkoc-navy);box-shadow:2px 2px 0 var(--kkoc-navy);}
 .kkoc-avatar--txt{display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;line-height:1;color:var(--kkoc-navy);background:var(--kkoc-yellow);}
@@ -186,8 +186,8 @@
 .kkoc-faq-grid{display:grid;grid-template-columns:1fr;gap:8px;}
 .kkoc-faq-grid .kkoc-h2{font-size:clamp(1.85rem,2.8vw,2.5rem);}
 .kkoc-faq{display:grid;gap:12px;}
-.kkoc-faq-item{background:#fff;border:2px solid var(--kkoc-navy);border-radius:12px;box-shadow:4px 4px 0 var(--kkoc-navy);}
-.kkoc-faq-item[open]{box-shadow:4px 4px 0 var(--kkoc-blue);}
+.kkoc-faq-item{background:#fff;border:1.5px solid #d5d8de;border-radius:14px;}
+.kkoc-faq-item[open]{border-color:var(--kkoc-navy);}
 .kkoc-faq-q{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 20px;min-height:44px;}
 .kkoc-faq-q::-webkit-details-marker{display:none;}
 .kkoc-faq-q::after{content:"";flex:none;width:22px;height:22px;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTIxNzIyIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNMTIgNXYxNE01IDEyaDE0Ii8+PC9zdmc+) center/contain no-repeat;transition:transform .2s ease;}
@@ -461,6 +461,80 @@
  .kkoc-mq-pause{display:none;}
  .kkoc-tab-lb{transition:none;}
 }
+.kkoc-lg-wrap{display:grid;gap:16px;}
+.kkoc-ba .kkoc-illu{box-shadow:none;border:1.5px solid #d5d8de;}
+.kkoc-logo-tile,.kkoc-logos .kkoc-logo-tile{box-shadow:none;border:1.5px solid #d5d8de;}
+.kkoc-lg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:1.5px;background:#d5d8de;border:1.5px solid #d5d8de;border-radius:22px;overflow:hidden;}
+.kkoc-lg-cell{display:flex;flex-direction:column;gap:24px;padding:32px 28px 28px;background:#fff;transition:background .25s ease;}
+.kkoc-lg-cell:hover{background:#fffdf4;}
+.kkoc-lg-head{display:flex;gap:14px;align-items:flex-start;}
+.kkoc-lg-num{flex:none;font-size:15px;line-height:1.5;font-weight:800;color:var(--kkoc-blue);padding-top:3px;}
+.kkoc-lg-h{margin:0 0 6px;font-size:1.3rem;line-height:1.3;font-weight:800;letter-spacing:-0.015em;color:var(--kkoc-navy);}
+.kkoc-lg-link{color:var(--kkoc-navy);text-decoration:none;background-image:linear-gradient(var(--kkoc-yellow),var(--kkoc-yellow));background-size:0 6px;background-position:0 92%;background-repeat:no-repeat;transition:background-size .25s ease;}
+.kkoc-lg-link:hover,.kkoc-lg-link:focus-visible{background-size:100% 6px;}
+.kkoc-lg-desc{margin:0;font-size:15.5px;line-height:1.55;color:var(--kkoc-muted);max-width:52ch;}
+.kkoc-lg-panel{margin-top:auto;background:var(--kkoc-soft);border-radius:16px;padding:14px;}
+.kkoc-mini{display:block;width:100%;max-width:420px;height:auto;margin:0 auto;}
+.kkoc-mini .kkoc-draw{stroke-dasharray:var(--kkoc-len,600);animation:kkoc-draw 8s ease-in-out infinite both;}
+.kkoc-mini .kkoc-flow{animation:kkoc-flow 4s linear infinite;}
+.kkoc-mini .kkoc-pulse{transform-box:fill-box;transform-origin:center;opacity:0;animation:kkoc-pulse 3s ease-out infinite;}
+.kkoc-mini .kkoc-bar{transform-box:fill-box;transform-origin:bottom;animation:kkoc-grow 8s ease-in-out infinite both;}
+.kkoc-mini .kkoc-caret{animation:kkoc-blink 1.2s ease-in-out infinite;}
+@keyframes kkoc-blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.kkoc-lg-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:22px 28px;border:1.5px solid #d5d8de;border-radius:18px;background:var(--kkoc-yellow-soft);}
+.kkoc-lg-cta-h{margin:0 0 4px;font-weight:800;font-size:1.05rem;line-height:1.35;color:var(--kkoc-navy);}
+.kkoc-lg-cta-t{margin:0;font-size:15px;line-height:1.5;color:var(--kkoc-ink);}
+.kkoc-pcs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:20px;}
+.kkoc-pc{margin:0;padding:30px 28px;background:#fff;border:1.5px solid #d5d8de;border-radius:18px;}
+.kkoc-pc-num{display:block;margin:0 0 18px;font-size:2.4rem;line-height:1;font-weight:800;letter-spacing:-0.03em;color:var(--kkoc-blue);}
+.kkoc-pc .kkoc-p{margin:0;color:var(--kkoc-muted);font-size:15.5px;}
+.kkoc-pc-time{margin:12px 0 0;font-size:14px;line-height:1.4;font-weight:700;color:var(--kkoc-navy);}
+.kkoc-fit{background:#fff;border:1.5px solid #d5d8de;border-radius:22px;padding:clamp(24px,3vw,40px);}
+.kkoc-fit-h{margin:0 0 20px;font-size:1.15rem;line-height:1.3;font-weight:800;color:var(--kkoc-navy);}
+.kkoc-fit-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:16px 40px;}
+.kkoc-fit-item{position:relative;margin:0;padding-left:36px;font-weight:600;line-height:1.5;color:var(--kkoc-navy);}
+.kkoc-fit-item::before{content:"";position:absolute;left:0;top:1px;width:24px;height:24px;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxMjE3MjIiLz48cGF0aCBkPSJNNyAxMi41bDMuMiAzLjJMMTcgOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZjZTMyIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) center/contain no-repeat;}
+.kkoc-rrs{display:grid;gap:20px;overflow:hidden;padding:6px 0 12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.kkoc-rr{overflow:hidden;}
+.kkoc-rr-track{display:flex;width:max-content;animation:kkoc-rr 70s linear infinite;will-change:transform;}
+.kkoc-rr--r .kkoc-rr-track{animation-direction:reverse;}
+.kkoc-rrs:hover .kkoc-rr-track,.kkoc-rrs:focus-within .kkoc-rr-track{animation-play-state:paused;}
+@keyframes kkoc-rr{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.kkoc-rr-group{display:flex;gap:20px;padding-right:20px;}
+.kkoc-rc{display:flex;flex-direction:column;width:330px;box-sizing:border-box;margin:0;padding:22px 22px 18px;background:#fff;border:1.5px solid #d5d8de;border-radius:18px;}
+.kkoc-rc--feat{background:var(--kkoc-blue);border-color:var(--kkoc-navy);box-shadow:5px 5px 0 var(--kkoc-navy);}
+.kkoc-rc-tag{margin:0 0 12px;font-size:13px;line-height:1.3;font-weight:700;color:var(--kkoc-muted);}
+.kkoc-rc-q{margin:0 0 10px;font-size:15.5px;line-height:1.55;color:var(--kkoc-navy);flex:1;}
+.kkoc-rc-note{margin:0 0 16px;font-size:13px;line-height:1.3;color:var(--kkoc-muted);}
+.kkoc-rc-who{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
+.kkoc-rc-av{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none;}
+.kkoc-rc-av--txt{display:inline-flex;align-items:center;justify-content:center;background:var(--kkoc-yellow);color:var(--kkoc-navy);font-weight:800;font-size:13px;line-height:1;}
+.kkoc-rc-name{display:block;font-weight:800;font-size:15px;line-height:1.3;color:var(--kkoc-navy);}
+.kkoc-rc-firm{display:block;font-size:13px;line-height:1.4;color:var(--kkoc-muted);}
+.kkoc-rc-more{align-self:flex-start;font-size:14px;font-weight:700;color:var(--kkoc-blue);text-decoration:underline;text-underline-offset:3px;min-height:24px;}
+.kkoc-rc--feat .kkoc-rc-tag,.kkoc-rc--feat .kkoc-rc-q,.kkoc-rc--feat .kkoc-rc-note,.kkoc-rc--feat .kkoc-rc-name,.kkoc-rc--feat .kkoc-rc-firm,.kkoc-rc--feat .kkoc-rc-more{color:#fff;}
+.kkoc-split2{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+.kkoc-faq{interpolate-size:allow-keywords;}
+.kkoc-faq-item::details-content{block-size:0;overflow:hidden;transition:block-size .35s ease,content-visibility .35s allow-discrete;}
+.kkoc-faq-item[open]::details-content{block-size:auto;}
+@media (min-width:760px){
+ .kkoc-lg--2{grid-template-columns:1fr 1fr;}
+ .kkoc-lg--3{grid-template-columns:repeat(3,1fr);}
+ .kkoc-lg--2 .kkoc-lg-cell--wide{grid-column:1 / -1;}
+ .kkoc-lg-cell{padding:40px 40px 34px;}
+ .kkoc-pcs{grid-template-columns:repeat(var(--kkoc-steps,3),1fr);}
+ .kkoc-fit-list{grid-template-columns:1fr 1fr;}
+}
+@media (min-width:960px){
+ .kkoc-split2{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:80px;}
+}
+@media (prefers-reduced-motion:reduce){
+ .kkoc-rr-track,.kkoc-mini .kkoc-draw,.kkoc-mini .kkoc-flow,.kkoc-mini .kkoc-pulse,.kkoc-mini .kkoc-bar,.kkoc-mini .kkoc-caret{animation:none;}
+ .kkoc-rrs{overflow-x:auto;-webkit-mask-image:none;mask-image:none;}
+ .kkoc-rr-group[aria-hidden="true"]{display:none;}
+ .kkoc-faq-item::details-content{transition:none;}
+ .kkoc-lg-cell,.kkoc-lg-link{transition:none;}
+}
 @media (prefers-reduced-motion:reduce){
  .kkoc-portrait-img,.kkoc-note,.kkoc-reveal,.kkoc-fab,.kkoc-illu .kkoc-draw,.kkoc-illu .kkoc-flow,.kkoc-illu .kkoc-pulse,.kkoc-illu .kkoc-bar{animation:none;}
  .kkoc-btn,.kkoc-card,.kkoc-arrowlink::after,.kkoc-dd-sum::after,.kkoc-service-link::after,.kkoc-faq-q::after,.kkoc-drawer-sub>summary::after{transition:none;}
@@ -619,7 +693,7 @@
 <div class="kkoc-formbox">
 <p class="kkoc-formbox-title">Krótkie zapytanie</p>
 <form class="frm-fluent-form fluent_form_2 ff-el-form-top ff_form_instance_2_1 kkoc-form" data-gl-part="ff-zapytanie-krotki" data-form_id="2" method="post" novalidate aria-label="Formularz zapytania">
-<div class="kkoc-form-grid"><div class="ff-el-group"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_names">Imię i nazwisko<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="text" id="ff_2_names" name="names" required autocomplete="name"></div></div><div class="ff-el-group"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_email">E-mail<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="email" id="ff_2_email" name="email" required autocomplete="email"></div></div><div class="ff-el-group"><div class="ff-el-input--label"><label class="kkoc-form-label" for="ff_2_phone">Telefon <span class="kkoc-form-opt">(opcjonalnie)</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="tel" id="ff_2_phone" name="phone" autocomplete="tel"></div></div><div class="ff-el-group"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_url">Adres sklepu lub strony<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="text" id="ff_2_url" name="shop_url" required inputmode="url" autocomplete="url" placeholder="np. mojsklep.pl"></div></div><div class="ff-el-group kkoc-form-full"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_service">Czego potrzebujesz?<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><select class="ff-el-form-control" id="ff_2_service" name="service" required><option value="" disabled selected>Wybierz usługę</option><option value="google">Prowadzenie kampanii Google Ads</option><option value="meta">Prowadzenie kampanii Facebook i Instagram Ads</option><option value="audyt">Audyt kampanii</option><option value="ga4">Wdrożenie GA4</option><option value="piksel">Piksel Meta i API konwersji</option><option value="konsultacje">Konsultacja online</option><option value="nie-wiem">Jeszcze nie wiem, chcę porozmawiać</option></select></div></div></div>
+<div class="kkoc-form-grid"><div class="ff-el-group"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_names">Imię i nazwisko<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="text" id="ff_2_names" name="names" required autocomplete="name" placeholder="np. Jan Kowalski"></div></div><div class="ff-el-group"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_email">E-mail<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="email" id="ff_2_email" name="email" required autocomplete="email" placeholder="np. jan@mojsklep.pl"></div></div><div class="ff-el-group"><div class="ff-el-input--label"><label class="kkoc-form-label" for="ff_2_phone">Telefon <span class="kkoc-form-opt">(opcjonalnie)</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="tel" id="ff_2_phone" name="phone" autocomplete="tel" placeholder="np. 600 100 200"></div></div><div class="ff-el-group"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_url">Adres sklepu lub strony<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><input class="ff-el-form-control" type="text" id="ff_2_url" name="shop_url" required inputmode="url" autocomplete="url" placeholder="np. mojsklep.pl"></div></div><div class="ff-el-group kkoc-form-full"><div class="ff-el-input--label ff-el-is-required asterisk-right"><label class="kkoc-form-label" for="ff_2_service">Czego potrzebujesz?<span class="kkoc-form-req" aria-hidden="true">*</span></label></div><div class="ff-el-input--content"><select class="ff-el-form-control" id="ff_2_service" name="service" required><option value="" disabled selected>Wybierz usługę</option><option value="google">Prowadzenie kampanii Google Ads</option><option value="meta">Prowadzenie kampanii Facebook i Instagram Ads</option><option value="audyt">Audyt kampanii</option><option value="ga4">Wdrożenie GA4</option><option value="piksel">Piksel Meta i API konwersji</option><option value="konsultacje">Konsultacja online</option><option value="nie-wiem">Jeszcze nie wiem, chcę porozmawiać</option></select></div></div></div>
 <div class="ff_submit_btn_wrapper"><button type="submit" class="ff-btn ff-btn-submit ff-btn-md kkoc-btn">Wyślij zapytanie</button></div>
 <p class="kkoc-form-micro">Wolisz rozmowę? Zadzwoń: <a class="kkoc-link" href="tel:+48609388776">609 388 776</a></p>
 <p class="kkoc-form-micro">Chcesz podać budżet i więcej szczegółów? <a class="kkoc-link" href="kontakt.html#kkoc-formularz">Pełny formularz na stronie kontaktu</a>.</p>
